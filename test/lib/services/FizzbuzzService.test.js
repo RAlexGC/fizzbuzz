@@ -13,6 +13,6 @@ describe("Unit Test for Fizzbuzz Service", () => {
     expect(explorer1.trick).toBe(1);
     expect(explorer3.trick).toBe("FIZZ");
     expect(explorer5.trick).toBe("BUZZ");
-    expect(explorer15.trick).toBe("FIZZBUZ");
+    expect(explorer15.trick).toBe("FIZZBUZZ");
   });
 });
