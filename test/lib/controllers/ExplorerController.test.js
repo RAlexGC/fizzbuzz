@@ -28,4 +28,14 @@ describe("Unit Test for Explorer Controller", () => {
       "node");
     expect(amontOfExplorersInMission).toBe(10);
   });
+  test("Validate score", () => {
+    const scoreFB1 = ExplorerController.validateScore(1);
+    const scoreFB3 = ExplorerController.validateScore(3);
+    const scoreFB5 = ExplorerController.validateScore(5);
+    const scoreFB15 = ExplorerController.validateScore(15);
+    expect(scoreFB1).toBe(1);
+    expect(scoreFB3).toBe('FIZZ');
+    expect(scoreFB5).toBe('BUZZ');
+    expect(scoreFB15).toBe('FIZZBUZZ');
+  });
 });
