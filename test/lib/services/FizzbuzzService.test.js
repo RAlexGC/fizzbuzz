@@ -15,4 +15,14 @@ describe("Unit Test for Fizzbuzz Service", () => {
         expect(explorer5.trick).toBe("BUZZ");
         expect(explorer15.trick).toBe("FIZZBUZZ");
     });
+    test("Validaciones de score", () => {
+        const score1 = FizzbuzzService.applyValidationInNumber(1);
+        const score3 = FizzbuzzService.applyValidationInNumber(3);
+        const score5 = FizzbuzzService.applyValidationInNumber(5);
+        const score15 = FizzbuzzService.applyValidationInNumber(15);
+        expect(score1).toBe(1);
+        expect(score3).toBe("FIZZ");
+        expect(score5).toBe("BUZZ");
+        expect(score15).toBe("FIZZBUZZ");
+    });
 });
