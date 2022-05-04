@@ -9,4 +9,15 @@
         "reasonML",
         "elm"
       ]
+    },
+    {
+      "name": "Woopa2",
+      "githubUsername": "ajolonauta2",
+      "score": 2,
+      "mission": "java",
+      "stacks": [
+        "javascript",
+        "groovy",
+        "elm"
+      ]
     }]

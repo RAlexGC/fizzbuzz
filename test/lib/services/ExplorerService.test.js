@@ -3,20 +3,29 @@ const Reader = require("../../../lib/utils/Reader");
 
 describe("Unit Test for Explorer Service", () => {
     test("Filter by mission method", () => {
-        const explorers = Reader.readJsonFile("explorers.json");
-        const explorersFiltered = explorers.filter((explorer) => explorer.mission == "node");
-        const explorersByMission = ExplorerService.filterByMission("explorers.json", "node");
-        expect(explorersByMission).toStrictEqual(explorersFiltered);
+        const explorersByMission = ExplorerService.filterByMission("explorersTest.json", "node");
+        expect(explorersByMission).toStrictEqual([{
+            "name": "Woopa1",
+            "githubUsername": "ajolonauta1",
+            "score": 1,
+            "mission": "node",
+            "stacks": [
+              "javascript",
+              "reasonML",
+              "elm"
+            ]
+          }]);
     });
     test("Amount of explorers by mission", () => {
-        const amountOfExplorers = ExplorerService.getAmountOfExplorersByMission("explorers.json", "node");
-        expect(amountOfExplorers).toBe(10);
+        const amountOfExplorers = ExplorerService.getAmountOfExplorersByMission("explorersTest.json", "node");
+        expect(amountOfExplorers).toBe(1);
     });
     test("Get explorers username by mission", () => {
-        const explorers = Reader.readJsonFile("explorers.json");
-        const explorersInNodeToGetUsernames = explorers.filter((explorer) => explorer.mission == "node");
-        const usernamesInNode = explorersInNodeToGetUsernames.map((explorer) => explorer.githubUsername);
-        const explorersUsernames = ExplorerService.getExplorersUsernamesByMission("explorers.json", "node");
-        expect(explorersUsernames).toStrictEqual(usernamesInNode);
+        const explorersUsernames = ExplorerService.getExplorersUsernamesByMission("explorersTest.json", "node");
+        expect(explorersUsernames).toStrictEqual(["ajolonauta1"]);
+    });
+    test("Get explorers name by mission", () => {
+        const explorersUsernames = ExplorerService.getExplorersNamesByMission("explorersTest.json", "node");
+        expect(explorersUsernames).toStrictEqual(["Woopa1"]);
     });
 });
