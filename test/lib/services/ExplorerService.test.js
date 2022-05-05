@@ -26,6 +26,14 @@ describe("Unit Test for Explorer Service", () => {
     });
     test("Get explorers name by mission", () => {
         const explorersUsernames = ExplorerService.getExplorersNamesByMission("explorersTest.json", "node");
-        expect(explorersUsernames).toStrictEqual(["Woopa1"]);
+        expect(explorersUsernames).toStrictEqual("Woopa1");
+    });
+    test("Validate input", () => {
+        const response1 = ExplorerService.validateInput("explorersTest.json", "3");
+        const response2 = ExplorerService.validateInput("explorersTest.json", "node");
+        const response3 = ExplorerService.validateInput("explorersTest.json", "test");
+        expect(response1).toStrictEqual("Tu número es: 3. Validación: FIZZ.");
+        expect(response2).toStrictEqual("Los explorers en la misión node son: Woopa1");
+        expect(response3).toStrictEqual("Escribe un mensaje válido (un número o una misión).");
     });
 });

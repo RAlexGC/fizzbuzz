@@ -36,4 +36,12 @@ describe("Unit Test for Explorer Controller", () => {
         expect(scoreFB5).toBe("BUZZ");
         expect(scoreFB15).toBe("FIZZBUZZ");
     });
+    test("Validate input", () => {
+        const response1 = ExplorerController.validateInput("explorersTest", "3");
+        const response2 = ExplorerController.validateInput("explorersTest", "node");
+        const response3 = ExplorerController.validateInput("explorersTest", "test");
+        expect(response1).toStrictEqual("Tu número es: 3. Validación: FIZZ.");
+        expect(response2).toStrictEqual("Los explorers en la misión node son: Woopa1");
+        expect(response3).toStrictEqual("Escribe un mensaje válido (un número o una misión).");
+    });
 });
